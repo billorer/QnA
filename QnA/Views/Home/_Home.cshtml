@@ -1,32 +1,50 @@
 ﻿<!-- ko with: home -->
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>QnA</h1>
+    <h3>Make your own FAQ</h3>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Your information</h2>
-        <p>This section shows how you can call ASP.NET Web API to get the user details.</p>
-        <p data-bind="text: myHometown"></p>
-       
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=273732">Learn more &raquo;</a></p>
+<div class="row wrapper">
+    <h5 id="informationHeader"></h5>
+    <div class="col-md-4 ">
+        <div class="container">
+            <div class="row qnaDiv">
+                <h1>QnA</h1>
+                <form class="form-horizontal" id="margBottom">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="question">Question:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="question" placeholder="Write you question here..."/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3" for="answer">Answer:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="answer" placeholder="Write you answer here..."/>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="addButton">Add</button>
+                </form>
+            </div>
+            <div class="row margTop margBottom">
+                <div class="form-group col-sm-3">
+                    <input class="btn btn-primary" type="button" id="get_file" value="Grab file" />
+                    <input type="file" id="my_file" />
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="customfileupload" />
+                </div>
+            </div>
+            <div class="row margTop margBottom">
+                <button type="submit" class="btn btn-primary" id="saveXMLButton">Save XML</button>
+            </div>
+        </div>
     </div>
-
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET Single Page Application (SPA) helps you build applications that include significant client-side interactions using HTML, CSS, and JavaScript.
-            It's now easier than ever before to getting started writing highly interactive web applications.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=273732">Learn more &raquo;</a></p>
-    </div>
-
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="container">
+                <textarea readonly=readonly class="form-control" id="xmlTextArea"></textarea> <!--<?xml version="1.0" encoding="UTF-8" ?></textarea>-->
+            </div>
+        </div>
     </div>
 </div>
-
 <!-- /ko -->

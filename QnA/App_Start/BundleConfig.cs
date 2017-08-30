@@ -27,7 +27,8 @@ namespace QnA
                 "~/Scripts/app/app.datamodel.js",
                 "~/Scripts/app/app.viewmodel.js",
                 "~/Scripts/app/home.viewmodel.js",
-                "~/Scripts/app/_run.js"));
+                "~/Scripts/app/_run.js",
+                "~/Scripts/app/qna.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
