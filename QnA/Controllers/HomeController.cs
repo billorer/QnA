@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web.UI;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace QnA.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -17,13 +18,19 @@ namespace QnA.Controllers
             return View();
         }
 
-        [HttpPost, ValidateInput(false)]
-        public void WriteToFile(string xml)
+        [HttpPost]
+        public void WriteToFile()
         {
+            Response.ContentType = "text/xml";
+            // Read XML posted via HTTP
+            StreamReader reader = new StreamReader(Request.InputStream);
+            string xmlData = reader.ReadToEnd();
+
             XmlDocument xdoc = new XmlDocument();
-            if (CheckIfValidXML(xml))
+           
+            if (CheckIfValidXML(xmlData))
             {
-                xdoc.LoadXml(xml);
+                xdoc.LoadXml(xmlData);
                 xdoc.Save(@"c:\qna.xml");
             }
 

@@ -40,5 +40,10 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("Scripts", required: false)
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/app")
+    <script>
+            ko.applyBindings(new QnAViewModel());
+    </script>
 </body>
 </html>

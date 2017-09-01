@@ -19,7 +19,9 @@ namespace QnA
 
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                 "~/Scripts/knockout-{version}.js",
-                "~/Scripts/knockout.validation.js"));
+                "~/Scripts/knockout.validation.js",
+                "~/Scripts/knockout-3.4.2.js",
+                "~/Scripts/knockout-3.4.2.debug.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/sammy-{version}.js",

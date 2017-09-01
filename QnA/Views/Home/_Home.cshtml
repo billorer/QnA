@@ -1,50 +1,66 @@
-﻿<!-- ko with: home -->
-<div class="jumbotron">
+﻿<div class="jumbotron">
     <h1>QnA</h1>
     <h3>Make your own FAQ</h3>
 </div>
 <div class="row wrapper">
-    <h5 id="informationHeader"></h5>
-    <div class="col-md-4 ">
-        <div class="container">
+    <div id="controllerDiv" class="col-md-6 ">
+        <div id="borderWidth">
             <div class="row qnaDiv">
-                <h1>QnA</h1>
+                <h4>Add new QnA</h4>
                 <form class="form-horizontal" id="margBottom">
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="question">Question:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="question" placeholder="Write you question here..."/>
+                            <input type="text" class="form-control" id="question" data-bind="value: question" placeholder="Write your question here..." />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="answer">Answer:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="answer" placeholder="Write you answer here..."/>
+                            <input type="text" class="form-control" id="answer" data-bind="value: answer" placeholder="Write your answer here..." />
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="addButton">Add</button>
+                    <button type="submit" class="btn btn-success margBottom" id="addButton" data-bind="click: addQna">Add</button>
                 </form>
             </div>
             <div class="row margTop margBottom">
-                <div class="form-group col-sm-3">
-                    <input class="btn btn-primary" type="button" id="get_file" value="Grab file" />
+                <h4>Load XML File</h4>
+                <div class="col-md-2 col-sm-2">
+                    <input class="btn btn-primary btn-md" type="button" id="get_file" data-bind="click: getFile" value="Grab file" />
                     <input type="file" id="my_file" />
                 </div>
-                <div class="col-sm-9">
+                <div class="col-md-8 col-sm-8">
                     <input type="text" class="form-control" id="customfileupload" />
                 </div>
-            </div>
-            <div class="row margTop margBottom">
-                <button type="submit" class="btn btn-primary" id="saveXMLButton">Save XML</button>
+                <div class="col-md-2 col-sm-2">
+                    <input class="btn btn-success btn-md" type="button" id="uploadFile" data-bind="click: uploadFile" value="Load File" />
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-8">
-        <div class="row">
-            <div class="container">
-                <textarea readonly=readonly class="form-control" id="xmlTextArea"></textarea> <!--<?xml version="1.0" encoding="UTF-8" ?></textarea>-->
+    <div class="col-md-6">
+            <h3>QnA Table</h3>
+            <div class="row" id="tableDiv">
+                <table id="qnaTable">
+                    <thead>
+                        <tr>
+                            <th>Questions</th>
+                            <th>Answers</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: qna">
+                        <tr>
+                            <td data-bind="text: question"></td>
+                            <td data-bind="text: answer"></td>
+                            <td class="options"><button type="submit" class="btn btn-danger btn-sm" data-bind="click: $root.removeQna">Remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
+            <div class="row margTop">
+                <button type="submit" class="btn btn-success" id="saveXMLButton" data-bind="click: saveXML">Save as XML</button>
+            </div>
+            <h5 class="margTop" id="informationHeader" data-bind="text: informationHeader"></h5>
     </div>
 </div>
-<!-- /ko -->

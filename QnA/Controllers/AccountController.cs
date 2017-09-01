@@ -12,7 +12,7 @@ using QnA.Models;
 
 namespace QnA.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

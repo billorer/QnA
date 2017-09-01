@@ -37,23 +37,40 @@ textarea {
 }
 
 
+#controllerDiv {
+    border-right: 0.5px solid #fff;
+}
+
+
+
 /***********************************************************/
 #my_file {
     display: none;
 }
 
-.margBottom{
+#customfileupload {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#uploadFile {
+    position: relative;
+    right: 15px;
+}
+
+.margBottom {
     margin-bottom: 25px;
 }
 .margTop{
     margin-top: 25px;
 }
 
-#xmlTextArea {
-    border: none;
-    
-    min-width: 400px;
-    min-height: 200px;
+.qnaDiv {
+    border-bottom: 0.5px solid #fff;
+}
+
+#borderWidth {   
+    width: 95%;
 }
 
 .wrapper {
@@ -72,4 +89,40 @@ textarea {
 .jumbotron {
     color: rgb(6, 33, 54);
     background-color: #fff;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 25px 10px;
+}
+
+th, td {
+    text-align: center;
+}
+
+th {
+    border-bottom: 2.5px solid #fff;
+}
+
+td {
+    border-bottom: 1px solid #fff;  
+}
+
+#tableDiv {
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+/*tbody {
+    display: block;
+    height: 300px;
+    overflow: auto;
+}*/
+
+.options {
+    border-bottom: none;
+}
+.options a{
+    color: #fff;
 }
