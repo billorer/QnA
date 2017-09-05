@@ -3,6 +3,10 @@
 
     self.question = ko.observable(question);
     self.answer = ko.observable(answer);
+    self.showQuestionTemplate = ko.observable(false);
+    self.showAnswerTemplate = ko.observable(false);
+    self.showQuestion = ko.observable(true);
+    self.showAnswer = ko.observable(true);
 }
 
 function QnAViewModel() {
@@ -104,5 +108,32 @@ function QnAViewModel() {
             self.qna.push(new QnA(question, answer));
         });
     } 
-    
+
+    self.changeTemplateQuestion = function (modelQna) {
+        if (modelQna.showQuestion) {
+            modelQna.showQuestion(false);
+            modelQna.showQuestionTemplate(true);
+        } 
+    }
+
+    self.changeTemplateAnswer = function (modelQna) {
+        if (modelQna.showAnswer) {
+            modelQna.showAnswer(false);
+            modelQna.showAnswerTemplate(true);
+        }
+    }
+
+    self.cancelModifyAnswer = function (modelQna) {
+        if (modelQna.showAnswerTemplate) {
+            modelQna.showAnswer(true);
+            modelQna.showAnswerTemplate(false);
+        }
+    }
+
+    self.cancelModifyQuestion = function (modelQna) {
+        if (modelQna.showQuestionTemplate) {
+            modelQna.showQuestion(true);
+            modelQna.showQuestionTemplate(false);
+        }
+    }  
 }

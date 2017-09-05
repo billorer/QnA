@@ -39,28 +39,56 @@
         </div>
     </div>
     <div class="col-md-6">
-            <h3>QnA Table</h3>
-            <div class="row" id="tableDiv">
-                <table id="qnaTable">
-                    <thead>
-                        <tr>
-                            <th>Questions</th>
-                            <th>Answers</th>
-                            <th>Options</th>
-                        </tr>
-                    </thead>
-                    <tbody data-bind="foreach: qna">
-                        <tr>
-                            <td data-bind="text: question"></td>
-                            <td data-bind="text: answer"></td>
-                            <td class="options"><button type="submit" class="btn btn-danger btn-sm" data-bind="click: $root.removeQna">Remove</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row margTop">
-                <button type="submit" class="btn btn-success" id="saveXMLButton" data-bind="click: saveXML">Save as XML</button>
-            </div>
-            <h5 class="margTop" id="informationHeader" data-bind="text: informationHeader"></h5>
+        <h3>QnA Table</h3>
+        <div class="row" id="tableDiv">
+            <table id="qnaTable">
+                <thead>
+                    <tr>
+                        <th>Questions</th>
+                        <th>Answers</th>
+                        <th>Options</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: qna">
+                    <tr>
+                        <!--<td><input data-bind="value: question, click: $root.readonly, attr: { 'readonly': $root.getreadonlyState }" /></td>
+                        <td><input data-bind="value: answer, click: $root.editInput" readonly/></td>-->
+                        <td data-bind="text: question, click: function() { $root.changeTemplateQuestion($data) }, visible: showQuestion"></td>
+                        <td data-bind="template: { name: 'questionTemplate', data: $data }, visible: showQuestionTemplate" ></td>
+                        <td data-bind="text: answer, click: function() { $root.changeTemplateAnswer($data) }, visible: showAnswer"></td>
+                        <td data-bind="template: { name: 'answerTemplate' }, visible: showAnswerTemplate"></td>
+                        <td class="options"><button type="submit" class="btn btn-danger btn-sm" data-bind="click: $root.removeQna">Remove</button></td>
+                        
+                        
+                        <!--<div data-bind="template: { name: 'friend-template', data: friend2 }"></div>-->
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row margTop">
+            <button type="submit" class="btn btn-success" id="saveXMLButton" data-bind="click: saveXML">Save as XML</button>
+        </div>
+        <h5 class="margTop" id="informationHeader" data-bind="text: informationHeader"></h5>
     </div>
 </div>
+
+<script type="text/html" id="questionTemplate">
+    <div class="input-group">
+        <input class="form-control" data-bind="value: question" />
+        <div class="input-group-btn btn-group-vertical">
+            @*<button type="button" class="btn btn-success btn-xs" data-bind="click: function() { $root.approveModify($data) }"><span class="glyphicon glyphicon-ok-circle"></span></button>*@
+            <button type="button" class="btn btn-danger btn-xs" data-bind="click: function() { $root.cancelModifyQuestion($data) }"><span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="answerTemplate">
+    <div class="input-group">
+        <input class="form-control" data-bind="value: answer" />
+        <div class="input-group-btn btn-group-vertical">
+            @*<button type="button" class="btn btn-success btn-xs" data-bind="click: function() { $root.approveModify($data) }"><span class="glyphicon glyphicon-ok-circle"></span></button>*@
+            <button type="button" class="btn btn-danger btn-xs" data-bind="click: function() { $root.cancelModifyAnswer($data) }"><span class="glyphicon glyphicon-circle-arrow-left"></span></button>
+        </div>
+    </div>
+</script>

@@ -95,6 +95,7 @@ table {
     margin: 0 auto;
     border-collapse: separate;
     border-spacing: 25px 10px;
+    color: #fff;
 }
 
 th, td {
@@ -107,6 +108,11 @@ th {
 
 td {
     border-bottom: 1px solid #fff;  
+}
+
+td:hover {
+    color: #888;
+    cursor: pointer;
 }
 
 #tableDiv {
